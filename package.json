@@ -1,0 +1,23 @@
+{
+  "name": "bleuguide",
+  "version": "1.0.0",
+  "description": "Awesome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dominicbosch/bleuguide.git"
+  },
+  "author": "Dominic Bosch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dominicbosch/bleuguide/issues"
+  },
+  "homepage": "https://github.com/dominicbosch/bleuguide",
+  "dependencies": {
+    "express": "^4.12.3",
+    "socket.io": "^1.3.5"
+  }
+}
