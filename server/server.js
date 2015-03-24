@@ -1,4 +1,5 @@
-var express = require( 'express' );
+var express = require( 'express' ),
+	socketio = require('socket.io');
 app = express();
 
 app.get( '/', function( req, res ) {
@@ -10,5 +11,15 @@ app.use( express.static( './client' ) );
 
 exports.init = function( port ) {
 	console.log( 'Starting to listen on port ' + port ); 
-	app.listen( port );
+	var server = app.listen( port );
+	var io = socketio( server );
+
+	io.on('connection', function (socket) {
+		socket.emit('news', { hello: 'world' });
+		socket.on('newrating', function (data) {
+			console.log(data);
+			data.rating += 1;
+			socket.emit( 'ratingupdate', data );
+		});
+	});
 };
